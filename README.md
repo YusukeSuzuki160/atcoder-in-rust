@@ -1,0 +1,2 @@
+# atcoder-in-rust
+rustでatcoderをするためのリポジトリ
