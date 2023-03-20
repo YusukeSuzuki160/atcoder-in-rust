@@ -1,14 +1,14 @@
 # -*- coding:utf-8-unix -*-
 
 [package]
-name = "abc288"
+name = "abc294"
 version = "0.1.0"
-authors = ["meltpoint"]
+authors = ["meltpoint <suzuki-yusuke160@g.ecc.u-tokyo.ac.jp>"]
 edition = "2018"
 
 [[bin]]
 name = "main"
-path = "src/e.rs"
+path = "src/f.rs"
 
 [dependencies]
 # AtCoder 2020年言語アップデート以降に使用できるクレート。

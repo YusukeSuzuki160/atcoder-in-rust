@@ -7,14 +7,14 @@ fn sample1() {
     let testdir = TestDir::new(BIN, "");
     let output = testdir
         .cmd()
-        .output_with_stdin(r#"5 2
-3 1 4 1 5
-9 2 6 5 3
-3 5
+        .output_with_stdin(r#"3
+1 2
+4 2
+3 4
 "#)
         .tee_output()
         .expect_success();
-    assert_eq!(output.stdout_str(), "17
+    assert_eq!(output.stdout_str(), "4
 ");
     assert!(output.stderr_str().is_empty());
 }
@@ -24,32 +24,38 @@ fn sample2() {
     let testdir = TestDir::new(BIN, "");
     let output = testdir
         .cmd()
-        .output_with_stdin(r#"20 8
-29 27 79 27 30 4 93 89 44 88 70 75 96 3 78 39 97 12 53 62
-32 38 84 49 93 53 26 13 25 2 76 32 42 34 18 77 14 67 88 12
-1 3 4 5 8 14 16 20
+        .output_with_stdin(r#"4
+1 5
+2 6
+3 7
+4 8
 "#)
         .tee_output()
         .expect_success();
-    assert_eq!(output.stdout_str(), "533
+    assert_eq!(output.stdout_str(), "16
 ");
     assert!(output.stderr_str().is_empty());
 }
-/*
+
 #[test]
 fn sample3() {
     let testdir = TestDir::new(BIN, "");
     let output = testdir
         .cmd()
-        .output_with_stdin(r#"5 3
-1 2
-1 3
-2 3
+        .output_with_stdin(r#"8
+877914575 602436426
+861648772 623690081
+476190629 262703497
+971407775 628894325
+822804784 450968417
+161735902 822804784
+161735902 822804784
+822804784 161735902
 "#)
         .tee_output()
         .expect_success();
-    assert_eq!(output.stdout_str(), "1
+    assert_eq!(output.stdout_str(), "48
 ");
     assert!(output.stderr_str().is_empty());
 }
-*/
+
