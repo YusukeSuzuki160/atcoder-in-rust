@@ -7,11 +7,12 @@ fn sample1() {
     let testdir = TestDir::new(BIN, "");
     let output = testdir
         .cmd()
-        .output_with_stdin(r#"20230322
+        .output_with_stdin(r#"3 5 2
+2 0 4
 "#)
         .tee_output()
         .expect_success();
-    assert_eq!(output.stdout_str(), "4
+    assert_eq!(output.stdout_str(), "3
 ");
     assert!(output.stderr_str().is_empty());
 }
@@ -21,11 +22,12 @@ fn sample2() {
     let testdir = TestDir::new(BIN, "");
     let output = testdir
         .cmd()
-        .output_with_stdin(r#"0112223333444445555556666666777777778888888889999999999
+        .output_with_stdin(r#"2 3 1
+0 0
 "#)
         .tee_output()
         .expect_success();
-    assert_eq!(output.stdout_str(), "185
+    assert_eq!(output.stdout_str(), "221832080
 ");
     assert!(output.stderr_str().is_empty());
 }
@@ -35,11 +37,12 @@ fn sample3() {
     let testdir = TestDir::new(BIN, "");
     let output = testdir
         .cmd()
-        .output_with_stdin(r#"3141592653589793238462643383279502884197169399375105820974944
+        .output_with_stdin(r#"10 20 7
+6 5 0 2 0 0 0 15 0 0
 "#)
         .tee_output()
         .expect_success();
-    assert_eq!(output.stdout_str(), "9
+    assert_eq!(output.stdout_str(), "617586310
 ");
     assert!(output.stderr_str().is_empty());
 }

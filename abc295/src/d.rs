@@ -17,7 +17,7 @@ fn main() {
     }
     let mut not_pair_list = Vec::new();
     not_pair_list.push(to_list(&not_pair));
-    for c in s.chars().skip(1) {
+    for c in s.chars() {
         if not_pair.contains(&c) {
             not_pair.remove(&c);
         } else {
@@ -25,7 +25,7 @@ fn main() {
         }
         not_pair_list.push(to_list(&not_pair));
     }
-    not_pair_list.push(Vec::new());
+    //not_pair_list.push(Vec::new());
     /*for l in not_pair_list.clone() {
         println!("{:?}", l);
     }*/
