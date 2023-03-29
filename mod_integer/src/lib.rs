@@ -108,6 +108,12 @@ impl PartialEq for ModInteger {
 
 impl Eq for ModInteger {}
 
+impl PartialOrd for ModInteger {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        Some(self.value.cmp(&other.value))
+    }
+}
+
 impl std::fmt::Display for ModInteger {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         write!(f, "{}", self.value)
@@ -126,5 +132,10 @@ mod tests {
         assert_eq!(a - b, ModInteger::new(3, 5));
         assert_eq!(a * b, ModInteger::new(3, 5));
         assert_eq!(a / b, ModInteger::new(2, 5));
+        assert_eq!(a.pow(2), ModInteger::new(1, 5));
+        assert_eq!(a.pow(3), ModInteger::new(1, 5));
+        assert_eq!(a < b, true);
+        let c = ModInteger::new(3, 5);
+        assert_eq!(b == c, true);
     }
 }
